@@ -13,7 +13,7 @@ insert_final_newline = true
 [Makefile]
 indent_style = tab
 
-# shell files use tabs for indentation
+# shell files with additional formatter
 [*.sh]
-indent_style = tab
-
+binary_next_line = true
+switch_case_indent = true
