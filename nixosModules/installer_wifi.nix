@@ -15,6 +15,9 @@
               "WPA-PSK-SHA256"
               "WPA-PSK"
             ];
+            extraConfig = ''
+            ieee80211w=2
+            '';
           };
         };
       };
