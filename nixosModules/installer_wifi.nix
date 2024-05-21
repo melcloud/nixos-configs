@@ -9,7 +9,7 @@
 
         networks = {
           "@HOME_WIFI_NAME@" = {
-            pskRaw = "@HOME_WIFI_PASSWORD_PSK_RAW@";
+            psk = "@HOME_WIFI_PASSWORD_PSK@";
             authProtocols = [
               "SAE"
               "WPA-PSK-SHA256"
