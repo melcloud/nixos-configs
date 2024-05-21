@@ -6,7 +6,9 @@
         enable = true;
         fallbackToWPA2 = false;
         environmentFile = "/run/secrets/wifi.env";
-
+        extraConfig = ''
+        country=AU
+        '';
         networks = {
           "@HOME_WIFI_NAME@" = {
             psk = "@HOME_WIFI_PASSWORD_PSK@";
