@@ -11,8 +11,9 @@ Once booted from installation ISO, run following command to set up WIFI:
 read -rp "WIFI SSID: "$'\n' WIFI_SSID
 read -srp "WIFI password: "$'\n' WIFI_PASSWORD
 
-cat <<EOF > /run/secrets/wifi.env
+sudo mkdir -p /run/secrets/
+cat <<EOF | sudo tee /run/secrets/wifi.env > /dev/null
 HOME_WIFI_NAME="$WIFI_SSID"
-HOME_WIFI_PASSWORD_PSK_RAW=$(wpa_passphrase "$WIFI_SSID" "$WIFI_PASSWORD" | grep -E '^\s+psk' | cut -d'=' -f2)
+HOME_WIFI_PASSWORD_PSK="${WIFI_PASSWORD/&/\&}"
 EOF
 ```
