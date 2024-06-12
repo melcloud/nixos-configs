@@ -1,8 +1,9 @@
-{ system, inputs, ... }@flakeContext:
+{ inputs, ... }@flakeContext:
 let
   nixosModule = { config, lib, pkgs, ... }: {
     imports = [
-      inputs.disko.nixosModules.disko { swapSize = "32G" }
+      inputs.disko.nixosModules.disko
+      ./btrfs.nix
       inputs.nixos-hardware.nixModules.framework-12th-gen-intel
     ];
     config = {
@@ -12,8 +13,9 @@ let
     };
   };
 in
-inputs.nixpkgs.lib.nixosSystem {
-  system = "${system}";
+inputs.nixpkgs.lib.nixosSystem
+{
+  system = "x86_64-linux";
   modules = [
     nixosModule
   ];
