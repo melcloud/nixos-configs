@@ -14,6 +14,6 @@ read -srp "WIFI password: "$'\n' WIFI_PASSWORD
 sudo mkdir -p /run/secrets/
 cat <<EOF | sudo tee /run/secrets/wifi.env > /dev/null
 HOME_WIFI_NAME="$WIFI_SSID"
-HOME_WIFI_PASSWORD_PSK="${WIFI_PASSWORD/&/\&}"
+HOME_WIFI_PASSWORD_PSK="${WIFI_PASSWORD/&/\\&}"
 EOF
 ```
