@@ -26,7 +26,7 @@
         fallbackToWPA2 = false;
         environmentFile = "/run/secrets/wifi.env";
         extraConfig = ''
-        country=AU
+          country=AU
         '';
         networks = {
           "@HOME_WIFI_NAME@" = {
@@ -37,7 +37,7 @@
               "WPA-PSK"
             ];
             extraConfig = ''
-            ieee80211w=2
+              ieee80211w=2
             '';
           };
         };

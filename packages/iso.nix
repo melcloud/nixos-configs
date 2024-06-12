@@ -2,7 +2,7 @@
 let
   installerFormat = {
     "aarch64-linux" = "sd-aarch64-installer";
-    "x86_64-linux"  = "install-iso";
+    "x86_64-linux" = "install-iso";
   };
 
   nixosModule = { config, lib, pkgs, ... }: {

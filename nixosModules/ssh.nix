@@ -2,9 +2,9 @@
 { config, lib, pkgs, ... }: {
   config = {
     users.groups = {
-      ssh-user = {};
-      sftp-user = {};
-      ssh-svc-account = {};
+      ssh-user = { };
+      sftp-user = { };
+      ssh-svc-account = { };
     };
     programs.ssh = {
       startAgent = true;
