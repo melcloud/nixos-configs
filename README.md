@@ -17,3 +17,20 @@ HOME_WIFI_NAME="$WIFI_SSID"
 HOME_WIFI_PASSWORD_PSK="${WIFI_PASSWORD/&/\\&}"
 EOF
 ```
+
+## Build ISO
+```bash
+nix build '.#iso'
+```
+
+## Run nix-anywhere
+```bash
+nix run github:nix-community/nixos-anywhere -- --flake '.#<target>' root@<target IP>
+```
+
+## Development
+```bash
+nix fmt
+nix flake lock
+nix flake show
+```
