@@ -39,14 +39,12 @@
         (builtins.attrNames (builtins.readDir ./nixosModules))
       );
 
-      nixosConfigurations = eachSystem (system:
-        builtins.listToAttrs (map
-          (fileName: {
-            name = removeExtension fileName;
-            value = import (./nixosConfigurations + "/${fileName}") ({ system = "${system}"; } // flakeContext);
-          })
-          (builtins.attrNames (builtins.readDir ./nixosConfigurations))
-        )
+      nixosConfigurations = builtins.listToAttrs (map
+        (fileName: {
+          name = removeExtension fileName;
+          value = import (./nixosConfigurations + "/${fileName}") flakeContext;
+        })
+        (builtins.attrNames (builtins.readDir ./nixosConfigurations))
       );
 
       packages = eachSystem (system:
