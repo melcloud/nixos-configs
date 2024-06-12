@@ -7,10 +7,8 @@ let
 
   nixosModule = { config, lib, pkgs, ... }: {
     imports = [
-      inputs.self.nixosModules.ssh
-      inputs.self.nixosModules.user_nixos
       inputs.self.nixosModules.ntp
-      inputs.self.nixosModules.installer_wifi
+      inputs.self.nixosModules.installer
     ];
     config = {
       system = {

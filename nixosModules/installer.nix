@@ -1,6 +1,25 @@
 { inputs, ... }@flakeContext:
 { config, lib, pkgs, ... }: {
   config = {
+    # nix-anywhere must run as root
+    users.users.root = {
+      openssh.authorizedKeys.keys = [
+        "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILwGInIGXAhrdBhLSfU4OigLt0bhKS7lJjh48nD/zOpfAAAAE3NzaDpuaXhvcy1pbnN0YWxsZXI= melcloud@frame-arch"
+      ];
+    };
+    # enable root login, but enforce U2F check
+    services = {
+      openssh = {
+        enable = true;
+        settings = {
+          PermitRootLogin = "yes";
+          PasswordAuthentication = false;
+        };
+        extraConfig = ''
+          PubkeyAuthOptions verify-required
+        '';
+      };
+    };
     networking = {
       wireless = {
         enable = true;
